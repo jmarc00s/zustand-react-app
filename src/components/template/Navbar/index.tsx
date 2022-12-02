@@ -1,8 +1,10 @@
 import React from 'react';
 import { Navbar as FlowNavbar } from 'flowbite-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <FlowNavbar className="border-b-2" fluid={true} rounded={true}>
       <FlowNavbar.Brand href="/">
@@ -17,12 +19,19 @@ export const Navbar = () => {
       </FlowNavbar.Brand>
       <FlowNavbar.Toggle />
       <FlowNavbar.Collapse>
-        <Link to={'/'}>
-          <FlowNavbar.Link>Home</FlowNavbar.Link>
-        </Link>
-        <Link to={'/notes'}>
-          <FlowNavbar.Link>Notes</FlowNavbar.Link>
-        </Link>
+        <FlowNavbar.Link
+          className="hover:cursor-pointer"
+          onClick={() => navigate('/')}
+        >
+          Home
+        </FlowNavbar.Link>
+
+        <FlowNavbar.Link
+          className="hover:cursor-pointer"
+          onClick={() => navigate('/notes')}
+        >
+          Notes
+        </FlowNavbar.Link>
       </FlowNavbar.Collapse>
     </FlowNavbar>
   );
