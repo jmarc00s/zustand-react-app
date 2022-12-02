@@ -1,6 +1,15 @@
 import React from 'react';
+import { ModuleCard } from './components/ModuleCard';
 
 export const HomePage = () => {
+  const modules = [
+    {
+      title: 'Notes',
+      subtitle: 'Simple usage of zustand',
+      to: '/notes',
+    },
+  ];
+
   return (
     <section>
       <h1 className="text-3xl text-gray-800 text-center mb-4">
@@ -13,6 +22,12 @@ export const HomePage = () => {
         </a>{' '}
         state managment lib.
       </h2>
+
+      <div className="grid grid-cols-4 gap-2 w-2/3 mx-auto mt-8">
+        {modules.map((module, index) => (
+          <ModuleCard {...module} key={index} />
+        ))}
+      </div>
     </section>
   );
 };
