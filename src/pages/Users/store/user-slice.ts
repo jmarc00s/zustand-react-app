@@ -1,5 +1,6 @@
 import { StateCreator } from 'zustand';
 import { User } from '../models/user';
+import axios from 'axios';
 
 export interface UserSlice {
   users: User[];
@@ -15,7 +16,7 @@ export const createUserSlice: StateCreator<UserSlice> = (set) => ({
     }));
   },
   loadUsers: async () => {
-    const response = await fetch('http://localhost:4000/users');
-    set({ users: await response.json() });
+    const { data: users } = await axios('/users');
+    set({ users });
   },
 });
