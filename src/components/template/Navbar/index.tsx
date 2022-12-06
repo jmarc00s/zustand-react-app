@@ -32,6 +32,13 @@ export const Navbar = () => {
         >
           Notes
         </FlowNavbar.Link>
+
+        <FlowNavbar.Link
+          className="hover:cursor-pointer"
+          onClick={() => navigate('/users')}
+        >
+          Users
+        </FlowNavbar.Link>
       </FlowNavbar.Collapse>
     </FlowNavbar>
   );

@@ -8,6 +8,11 @@ export const HomePage = () => {
       subtitle: 'Simple usage of zustand',
       to: '/notes',
     },
+    {
+      title: 'Users',
+      subtitle: 'Async actions and slices',
+      to: '/users',
+    },
   ];
 
   return (
@@ -17,7 +22,11 @@ export const HomePage = () => {
       </h1>
       <h2 className="text-gray-400 font-medium text-center">
         This is an app to play around with the{' '}
-        <a target="_blank" href="https://github.com/pmndrs/zustand">
+        <a
+          className="underline"
+          target="_blank"
+          href="https://github.com/pmndrs/zustand"
+        >
           Zustand
         </a>{' '}
         state managment lib.
