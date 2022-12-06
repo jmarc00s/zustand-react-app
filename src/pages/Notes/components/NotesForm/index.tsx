@@ -26,7 +26,7 @@ export const NotesForm = () => {
         required
         className="w-full"
       />
-      <Button>Add</Button>
+      <Button type="submit">Add</Button>
     </form>
   );
 };
