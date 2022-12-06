@@ -9,15 +9,9 @@ export interface ProfileSlice {
 
 export const createProfileSlice: StateCreator<ProfileSlice> = (set) => ({
   profiles: [],
-  addProfile: (name: string) => {
-    set((state) => {
-      const profile: Profile = { name };
-      return {
-        profiles: [...state.profiles, profile],
-      };
-    });
-  },
-  loadProfiles: () => {
-    console.log('load profiles');
+  addProfile: (name: string) => {},
+  loadProfiles: async () => {
+    const response = fetch('http://localhost:4000/profiles');
+    set({ profiles: await (await response).json() });
   },
 });

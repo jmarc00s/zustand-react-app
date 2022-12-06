@@ -6,11 +6,11 @@ export const UserTable = () => {
   const { loadUsers, users } = useUsersStore();
 
   useEffect(() => {
-    async function load() {
+    async function getUsers() {
       await loadUsers();
     }
 
-    load();
+    getUsers();
   }, []);
 
   return (
