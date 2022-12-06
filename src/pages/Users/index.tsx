@@ -12,7 +12,7 @@ const UsersPage = () => {
         (Async actions and slices)
       </p>
 
-      <section className="flex gap-8">
+      <section className="flex gap-8 w-full mt-8">
         <UserTable />
         <ProfileTable />
       </section>

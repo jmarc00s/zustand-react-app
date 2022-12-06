@@ -14,19 +14,21 @@ export const ProfileTable = () => {
   }, []);
 
   return (
-    <Table striped hoverable className="w-full">
-      <Table.Head>
-        <Table.HeadCell>Id</Table.HeadCell>
-        <Table.HeadCell>Name</Table.HeadCell>
-      </Table.Head>
-      <Table.Body>
-        {profiles.map((profile) => (
-          <Table.Row key={profile.id}>
-            <Table.Cell>{profile.id}</Table.Cell>
-            <Table.Cell>{profile.name}</Table.Cell>
-          </Table.Row>
-        ))}
-      </Table.Body>
-    </Table>
+    <div className="w-full">
+      <Table striped hoverable className="w-full">
+        <Table.Head>
+          <Table.HeadCell>Id</Table.HeadCell>
+          <Table.HeadCell>Name</Table.HeadCell>
+        </Table.Head>
+        <Table.Body>
+          {profiles.map((profile) => (
+            <Table.Row key={profile.id}>
+              <Table.Cell>{profile.id}</Table.Cell>
+              <Table.Cell>{profile.name}</Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </div>
   );
 };
