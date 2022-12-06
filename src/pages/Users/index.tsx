@@ -1,4 +1,6 @@
 import React from 'react';
+import { ProfileTable } from './components/ProfilesTable';
+import { UserTable } from './components/UserTable';
 
 const UsersPage = () => {
   return (
@@ -9,6 +11,11 @@ const UsersPage = () => {
       <p className="text-center text-xs italic text-gray-400">
         (Async actions and slices)
       </p>
+
+      <section className="flex gap-8">
+        <UserTable />
+        <ProfileTable />
+      </section>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { User } from '../models/user';
 export interface UserSlice {
   users: User[];
   addUser: (user: User) => void;
-  loadUsers: () => void;
+  loadUsers: () => Promise<void>;
 }
 
 export const createUserSlice: StateCreator<UserSlice> = (set) => ({
@@ -14,7 +14,8 @@ export const createUserSlice: StateCreator<UserSlice> = (set) => ({
       users: [...state.users, user],
     }));
   },
-  loadUsers: () => {
-    console.log('loadUsers');
+  loadUsers: async () => {
+    const response = await fetch('http://localhost:4000/users');
+    set({ users: await response.json() });
   },
 });
