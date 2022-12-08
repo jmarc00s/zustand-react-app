@@ -21,7 +21,6 @@ export const UserForm = () => {
       profileId: Number(profileRef?.current?.value),
     };
 
-    console.log(formValues);
     await addUser(formValues);
     resetForm();
   };
