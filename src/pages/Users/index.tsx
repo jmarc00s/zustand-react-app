@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProfileTable } from './components/ProfilesTable';
-import { UserTable } from './components/UserTable';
+import { UsersSection } from './components/UserSection';
 
 const UsersPage = () => {
   return (
@@ -13,7 +13,7 @@ const UsersPage = () => {
       </p>
 
       <section className="flex gap-8 w-full mt-8">
-        <UserTable />
+        <UsersSection />
         <ProfileTable />
       </section>
     </div>
