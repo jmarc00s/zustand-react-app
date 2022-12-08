@@ -4,16 +4,22 @@ import axios from 'axios';
 
 export interface UserSlice {
   users: User[];
-  addUser: (user: User) => void;
+  addUser: (user: Partial<User>) => void;
   loadUsers: () => Promise<void>;
 }
 
 export const createUserSlice: StateCreator<UserSlice> = (set) => ({
   users: [],
-  addUser: (user: User) => {
-    set((state) => ({
-      users: [...state.users, user],
-    }));
+  addUser: async (data: Partial<User>): Promise<void> => {
+    const response = await axios.post<User>('/users', data);
+
+    if (response.status === 201) {
+      const user = response.data;
+
+      set((state) => ({
+        users: [...state.users, user],
+      }));
+    }
   },
   loadUsers: async () => {
     const { data: users } = await axios('/users');

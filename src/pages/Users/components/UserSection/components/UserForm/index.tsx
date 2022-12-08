@@ -1,25 +1,28 @@
 import React, { MutableRefObject, SyntheticEvent, useRef } from 'react';
 import { Button, Label, Select, TextInput } from 'flowbite-react';
 import { useUsersStore } from 'pages/Users/store';
+import { User } from 'pages/Users/models/user';
 
 export const UserForm = () => {
-  const { profiles } = useUsersStore();
+  const { profiles, addUser } = useUsersStore();
 
   const nameRef = useRef<HTMLInputElement | null>(null);
   const ageRef = useRef<HTMLInputElement | null>(null);
   const loginRef = useRef<HTMLInputElement | null>(null);
   const profileRef = useRef<HTMLSelectElement | null>(null);
 
-  const handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const formValues = {
-      name: nameRef?.current?.value,
-      age: ageRef?.current?.value,
-      login: loginRef?.current?.value,
+    const formValues: Partial<User> = {
+      name: nameRef?.current?.value || '',
+      age: Number(ageRef?.current?.value) || 0,
+      login: loginRef?.current?.value || '',
+      profileId: Number(profileRef?.current?.value),
     };
 
     console.log(formValues);
+    await addUser(formValues);
     resetForm();
   };
 
